@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:13:55 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/07 12:43:55 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/07 21:58:53 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	*ft_extract_lis(int *seq, int n)
 	lis_len = length[max_len_indx];
 	lis = malloc (lis_len * sizeof(int));
 	if (!lis)
-		return (NULL);
+		return (free(length), free(sub_seq), NULL);
 	i = lis_len - 1;
 	curr_indx = max_len_indx;
 	while (curr_indx != -1)
@@ -94,13 +94,5 @@ int	*ft_extract_lis(int *seq, int n)
 		lis[i--] = seq[curr_indx];
 		curr_indx = sub_seq[curr_indx];
 	}
-	// printf("\n\nlength:");
-	// ft_print_int(length, n);
-	// printf("\n\nsubseq:");
-	// ft_print_int(sub_seq, n);
-	// printf("\nfinal\n");
-	// printf("max_length = %d", lis_len);
-	// printf("\nmax_len_indx = %d\n\nLIS: ", max_len_indx);
-	// ft_print_int(lis, lis_len);
 	return (free(length), free(sub_seq), lis);
 }

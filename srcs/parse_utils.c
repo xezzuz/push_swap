@@ -6,11 +6,26 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:06:46 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/07 14:29:22 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/08 11:01:53 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	ft_free_matrix(char ***matrix)
+{
+	int		i;
+
+	if (*matrix == NULL)
+		return ;
+	i = 0;
+	while ((*matrix)[i])
+	{
+		free ((*matrix)[i]);
+		i++;
+	}
+	free (*matrix);
+}
 
 int	ft_is_blank(char **argv)
 {

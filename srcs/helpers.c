@@ -6,11 +6,16 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:06:40 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/06 19:04:15 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/08 10:54:58 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	x()
+{
+	system ("leaks push_swap");
+}
 
 void	ft_print_matrix(char **matrix)
 {
@@ -34,4 +39,5 @@ void	ft_print_int(int *array, int length)
 		printf("[%d]", array[i]);
 		i++;
 	}
+	printf("\n");
 }

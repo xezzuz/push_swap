@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:39:52 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/07 14:00:46 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/08 11:03:12 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@ char	**ft_extract_args(char **argv)
 	int		i;
 
 	i = 1;
-	// tmp = ft_strdup(" ");
-	// if (!tmp)
-	// 	return (NULL);
 	tmp = NULL;
 	while (argv[i])
 	{
@@ -61,40 +58,20 @@ int	*ft_matrix_to_int(char **matrix, int size)
 	}
 	if (!ft_check_duplicates(result, size))
 		return (free(result), NULL);
-	return (result);
+	return (ft_free_matrix(&matrix), result);
 }
 
 int	*ft_parse_check(char **argv, int *length)
 {
 	char	**matrix;
-	int		*seq;
-	int		*lis;
 
 	if (ft_is_blank(argv))
 		ft_exit(0);
 	matrix = ft_extract_args(argv);
 	if (!matrix)
 		ft_exit(0);
-	ft_print_matrix(matrix);
 	if (!ft_check_num(matrix))
-	{
-		// free (matrix);
 		ft_exit(0);
-	}
 	*length = ft_matrix_size(matrix);
-	printf("\n\n");
-	printf("\n\n");
-	seq = ft_matrix_to_int(matrix, *length);
-	if (!seq)
-	{
-		// free (matrix);
-		ft_exit(0);
-	}
-	if (*length == 1)
-		ft_exit(1);
-	ft_print_int(seq, *length);
-	lis = ft_extract_lis(seq, *length);
-	if (!lis)
-		return (free(seq), NULL); // free matrix
-	return (free(seq), lis); // free matrix
+	return (ft_matrix_to_int(matrix, *length)); // FREE MATRIX
 }

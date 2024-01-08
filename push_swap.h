@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:49:57 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/07 13:22:41 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/08 11:05:16 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,20 @@
 # include <limits.h>
 # include <fcntl.h>
 # include <stdarg.h>
+# include <unistd.h>
+
+typedef struct s_list
+{
+	int				content;
+	int				index;
+	struct s_list	*next;
+}	t_list;
+
+typedef struct s_list_ex
+{
+	t_list			*head;
+	int				size;
+}	t_list_ex;
 
 //	LIBFT
 size_t		ft_strlen(const char *s);
@@ -41,14 +55,17 @@ int		ft_printf(const char *format, ...);
 //	PUSH_SWAP
 int		*ft_parse_check(char **argv, int *length);
 void	ft_exit(int x);
+void	ft_free_matrix(char ***matrix);
 int		*ft_extract_lis(int *seq, int n);
 int		ft_check_num(char **matrix);
 int		ft_matrix_size(char **matrix);
 int		ft_is_blank(char **argv);
 int		ft_check_duplicates(int *array, int n);
+void	ft_stack_init(t_list_ex *a, int **seq, int n);
 
 //	HELPERS
 void	ft_print_matrix(char **matrix);
 void	ft_print_int(int *array, int length);
+void	x();
 
 #endif

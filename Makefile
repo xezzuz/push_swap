@@ -6,7 +6,7 @@
 #    By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 11:46:23 by nazouz            #+#    #+#              #
-#    Updated: 2024/01/07 13:08:22 by nazouz           ###   ########.fr        #
+#    Updated: 2024/01/07 22:43:18 by nazouz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRCS				=	\
 					./srcs/exit.c \
 					./srcs/helpers.c \
 					./srcs/lis.c \
+					./srcs/stack_init.c \
 					./srcs/main.c
 
 OBJS			=	$(SRCS:.c=.o)
@@ -51,6 +52,8 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CC) $(OBJS) -o $@
+
+cc : all clean	#############################
 
 clean :
 	$(RM) $(OBJS)
