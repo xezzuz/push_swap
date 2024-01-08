@@ -6,7 +6,7 @@
 #    By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 11:46:23 by nazouz            #+#    #+#              #
-#    Updated: 2024/01/07 22:43:18 by nazouz           ###   ########.fr        #
+#    Updated: 2024/01/08 14:39:51 by nazouz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,11 @@ SRCS				=	\
 					./srcs/libft/ft_strlcpy.c \
 					./srcs/libft/ft_memcpy.c \
 					./srcs/libft/ft_atoll.c \
+					./srcs/libft/ft_lstadd_back.c \
+					./srcs/libft/ft_lstclear.c \
+					./srcs/libft/ft_lstlast.c \
+					./srcs/libft/ft_lstnew.c \
+					./srcs/libft/ft_lstsize.c \
 					./srcs/ft_printf/ft_printf.c \
 					./srcs/ft_printf/ft_print_add.c \
 					./srcs/ft_printf/ft_printhex.c \
@@ -41,6 +46,9 @@ SRCS				=	\
 					./srcs/helpers.c \
 					./srcs/lis.c \
 					./srcs/stack_init.c \
+					./srcs/push_swap.c \
+					./srcs/swap_rotate.c \
+					./srcs/rev_rotate.c \
 					./srcs/main.c
 
 OBJS			=	$(SRCS:.c=.o)

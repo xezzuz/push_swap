@@ -1,56 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 14:06:40 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/08 13:30:10 by nazouz           ###   ########.fr       */
+/*   Created: 2024/01/08 13:16:13 by nazouz            #+#    #+#             */
+/*   Updated: 2024/01/08 14:24:58 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	x(void)
-{
-	system ("leaks push_swap");
-}
-
-void	ft_print_ll(t_list **lst)
+t_list	*ft_get_max(t_list_ex *a)
 {
 	t_list		*current;
+	t_list		*max;
 
-	current = *lst;
+	max = a->head;
+	current = a->head->next;
 	while (current)
 	{
-		// printf("[%d]\t", current->index);
-		printf("[%d]\n", current->content);
+		if (current->content > max->content)
+			max = current;
 		current = current->next;
 	}
+	return (max);
 }
 
-void	ft_print_matrix(char **matrix)
+void	ft_sort_three(t_list_ex *a)
 {
-	int		i;
+	t_list		*max_node;
 
-	i = 0;
-	while (matrix[i])
-	{
-		printf("matrix[%d] = %s\n", i, matrix[i]);
-		i++;
-	}
-}
-
-void	ft_print_int(int *array, int length)
-{
-	int		i;
-
-	i = 0;
-	while (i < length)
-	{
-		printf("[%d]", array[i]);
-		i++;
-	}
-	printf("\n");
+	max_node = ft_get_max(a);
+	if (max_node == a->head)
+		ra(a);
+	else if (max_node == a->head->next)
+		rra(a);
+	if (a->head->content > a->head->next->content)
+		sa(a);
 }

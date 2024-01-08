@@ -1,56 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 14:06:40 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/08 13:30:10 by nazouz           ###   ########.fr       */
+/*   Created: 2024/01/08 14:31:32 by nazouz            #+#    #+#             */
+/*   Updated: 2024/01/08 14:38:27 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	x(void)
+void	reverse_rotate(t_list_ex *a)
 {
-	system ("leaks push_swap");
-}
-
-void	ft_print_ll(t_list **lst)
-{
+	t_list		*last;
 	t_list		*current;
 
-	current = *lst;
-	while (current)
-	{
-		// printf("[%d]\t", current->index);
-		printf("[%d]\n", current->content);
+	current = a->head;
+	while (current->next->next)
 		current = current->next;
-	}
+	last = current->next;
+	current->next = NULL;
+	last->next = a->head;
+	a->head = last;
 }
 
-void	ft_print_matrix(char **matrix)
+void	rra(t_list_ex *a)
 {
-	int		i;
-
-	i = 0;
-	while (matrix[i])
-	{
-		printf("matrix[%d] = %s\n", i, matrix[i]);
-		i++;
-	}
+	reverse_rotate(a);
+	ft_printf("rra\n");
+	ft_print_ll(&a->head);
 }
 
-void	ft_print_int(int *array, int length)
+void	rrb(t_list_ex *b)
 {
-	int		i;
-
-	i = 0;
-	while (i < length)
-	{
-		printf("[%d]", array[i]);
-		i++;
-	}
-	printf("\n");
+	reverse_rotate(b);
+	ft_printf("rrb\n");
+	ft_print_ll(&b->head);
 }

@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:39:52 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/08 11:03:12 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/08 12:24:53 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	*ft_matrix_to_int(char **matrix, int size)
 	return (ft_free_matrix(&matrix), result);
 }
 
-int	*ft_parse_check(char **argv, int *length)
+int	*ft_parse_check(char **argv, t_arrays *arr)
 {
 	char	**matrix;
 
@@ -72,6 +72,6 @@ int	*ft_parse_check(char **argv, int *length)
 		ft_exit(0);
 	if (!ft_check_num(matrix))
 		ft_exit(0);
-	*length = ft_matrix_size(matrix);
-	return (ft_matrix_to_int(matrix, *length)); // FREE MATRIX
+	arr->seq_len = ft_matrix_size(matrix);
+	return (ft_matrix_to_int(matrix, arr->seq_len));
 }

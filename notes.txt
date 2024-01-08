@@ -1,2 +1,3 @@
 parsing is done.
 leaks: seq, lis, linked list.
+sorting three is done, sa, r, rr are done.
