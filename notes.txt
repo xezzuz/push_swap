@@ -1,3 +1,4 @@
 parsing is done.
 leaks: seq, lis, linked list.
 sorting three is done, sa, r, rr are done.
+sorting stacks: finding target node is done.

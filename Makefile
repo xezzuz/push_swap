@@ -6,7 +6,7 @@
 #    By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 11:46:23 by nazouz            #+#    #+#              #
-#    Updated: 2024/01/08 14:39:51 by nazouz           ###   ########.fr        #
+#    Updated: 2024/01/09 21:03:57 by nazouz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,9 +46,12 @@ SRCS				=	\
 					./srcs/helpers.c \
 					./srcs/lis.c \
 					./srcs/stack_init.c \
-					./srcs/push_swap.c \
-					./srcs/swap_rotate.c \
-					./srcs/rev_rotate.c \
+					./srcs/simple_sort.c \
+					./srcs/advanced_sort.c \
+					./srcs/adv_sort_utils.c \
+					./srcs/commands/swap_rotate.c \
+					./srcs/commands/rev_rotate.c \
+					./srcs/commands/push.c \
 					./srcs/main.c
 
 OBJS			=	$(SRCS:.c=.o)

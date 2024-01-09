@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:49:57 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/08 14:39:21 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/09 21:03:25 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_list
 {
 	int				content;
 	int				index;
+	struct s_list	*target_node;
 	struct s_list	*next;
 }	t_list;
 
@@ -78,6 +79,11 @@ void		ft_stack_init(t_list_ex *a, int **seq, int n);
 int			ft_is_sorted(t_list_ex *a);
 
 void		ft_sort_three(t_list_ex *a);
+void		ft_sort_stack(t_list_ex *a, t_list_ex *b, t_arrays arr);
+
+t_list		*ft_get_max(t_list_ex *a);
+t_list		*ft_get_min(t_list_ex *a);
+
 void		sa(t_list_ex *a);
 void		rotate(t_list_ex *a);
 void		ra(t_list_ex *a);
@@ -86,6 +92,9 @@ void		rr(t_list_ex *a, t_list_ex *b);
 void		reverse_rotate(t_list_ex *a);
 void		rra(t_list_ex *a);
 void		rrb(t_list_ex *b);
+void		push(t_list_ex *from, t_list_ex *to);
+void		pa(t_list_ex *a, t_list_ex *b);
+void		pb(t_list_ex *a, t_list_ex *b);
 
 //	HELPERS
 void		ft_print_matrix(char **matrix);

@@ -1,57 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   commands.c                                         :+:      :+:    :+:   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 13:34:41 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/08 14:29:29 by nazouz           ###   ########.fr       */
+/*   Created: 2024/01/08 14:31:32 by nazouz            #+#    #+#             */
+/*   Updated: 2024/01/09 17:18:00 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-void	sa(t_list_ex *a)
-{
-	int		temp;
-
-	temp = a->head->content;
-	a->head->content = a->head->next->content;
-	a->head->next->content = temp;
-	ft_printf("sa\n");
-	ft_print_ll(&a->head);
-}
-
-void	rotate(t_list_ex *a)
+void	reverse_rotate(t_list_ex *a)
 {
 	t_list		*last;
+	t_list		*current;
 
-	last = ft_lstlast(a->head);
+	current = a->head;
+	while (current->next->next)
+		current = current->next;
+	last = current->next;
+	current->next = NULL;
 	last->next = a->head;
-	a->head = a->head->next;
-	last->next->next = NULL;
+	a->head = last;
 }
 
-void	ra(t_list_ex *a)
+void	rra(t_list_ex *a)
 {
-	rotate(a);
-	ft_printf("ra\n");
+	reverse_rotate(a);
+	ft_printf("rra\n");
 	ft_print_ll(&a->head);
 }
 
-void	rb(t_list_ex *b)
+void	rrb(t_list_ex *b)
 {
-	rotate(b);
-	ft_printf("rb\n");
+	reverse_rotate(b);
+	ft_printf("rrb\n");
 	ft_print_ll(&b->head);
 }
 
-void	rr(t_list_ex *a, t_list_ex *b)
+void	rrr(t_list_ex *a, t_list_ex *b)
 {
-	rotate(a);
-	rotate(b);
-	ft_printf("rr\n");
+	reverse_rotate(a);
+	reverse_rotate(b);
+	ft_printf("rrr\n");
 	ft_printf("A:\n");
 	ft_print_ll(&a->head);
 	ft_printf("B:\n");

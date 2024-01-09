@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:33:57 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/08 14:01:16 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/09 18:00:31 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,10 @@ int	main(int argc, char **argv)
 	{
 		if (a.size == 2)
 			sa(&a);
-		if (a.size == 3)
+		else if (a.size == 3)
 			ft_sort_three(&a);
+		else
+			ft_sort_stack(&a, &b, arr);
 	}
 
 	// atexit(x);
