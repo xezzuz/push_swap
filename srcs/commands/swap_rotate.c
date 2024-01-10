@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:34:41 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/09 17:17:50 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/10 13:29:04 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	sa(t_list_ex *a)
 	a->head->content = a->head->next->content;
 	a->head->next->content = temp;
 	ft_printf("sa\n");
-	ft_print_ll(&a->head);
 }
 
 void	rotate(t_list_ex *a)
@@ -36,24 +35,22 @@ void	rotate(t_list_ex *a)
 void	ra(t_list_ex *a)
 {
 	rotate(a);
+	a->size = ft_lstsize(a->head);
 	ft_printf("ra\n");
-	ft_print_ll(&a->head);
 }
 
 void	rb(t_list_ex *b)
 {
 	rotate(b);
+	b->size = ft_lstsize(b->head);
 	ft_printf("rb\n");
-	ft_print_ll(&b->head);
 }
 
 void	rr(t_list_ex *a, t_list_ex *b)
 {
 	rotate(a);
+	a->size = ft_lstsize(a->head);
 	rotate(b);
+	b->size = ft_lstsize(b->head);
 	ft_printf("rr\n");
-	ft_printf("A:\n");
-	ft_print_ll(&a->head);
-	ft_printf("B:\n");
-	ft_print_ll(&b->head);
 }

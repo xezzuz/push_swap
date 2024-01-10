@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   adv_sort_utils_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:27:53 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/10 12:59:41 by nazouz           ###   ########.fr       */
+/*   Created: 2024/01/10 17:49:17 by nazouz            #+#    #+#             */
+/*   Updated: 2024/01/10 17:53:49 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_final_check(t_list_ex *a)
 {
-	size_t		i;
+	t_list		*min;
+	int			cost;
 
-	i = 0;
-	while (lst != NULL)
+	min = ft_get_min(a);
+	if (min->index <= a->size / 2)
 	{
-		lst->index = i;
-		lst = lst->next;
-		i++;
+		cost = min->index;
+		while (cost--)
+			ra(a);
 	}
-	return (i);
+	else// if (min->index > a->size / 2)
+	{
+		cost = a->size - min->index;
+		while (cost--)
+			rra(a);
+	}
+	printf("final cost for [%d] is [%d]", min->content, cost);
 }

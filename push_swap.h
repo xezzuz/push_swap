@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:49:57 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/09 21:03:25 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/10 17:51:20 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_list
 {
 	int				content;
 	int				index;
+	int				cost;
 	struct s_list	*target_node;
 	struct s_list	*next;
 }	t_list;
@@ -33,6 +34,7 @@ typedef struct s_list_ex
 {
 	t_list			*head;
 	int				size;
+	t_list			*cheapest;
 }	t_list_ex;
 
 typedef struct s_arrays
@@ -77,6 +79,11 @@ int			ft_is_blank(char **argv);
 int			ft_check_duplicates(int *array, int n);
 void		ft_stack_init(t_list_ex *a, int **seq, int n);
 int			ft_is_sorted(t_list_ex *a);
+int			ft_is_in_lis(int x, t_arrays arr);
+void		ft_stack_to_lis(t_list_ex *a, t_list_ex *b, t_arrays arr);
+void		ft_get_cheapest_to_top_b(t_list_ex *b, t_list *to_top);
+void		ft_get_cheapest_to_top_a(t_list_ex *a, t_list *to_top);
+void		ft_final_check(t_list_ex *a);
 
 void		ft_sort_three(t_list_ex *a);
 void		ft_sort_stack(t_list_ex *a, t_list_ex *b, t_arrays arr);
@@ -92,6 +99,7 @@ void		rr(t_list_ex *a, t_list_ex *b);
 void		reverse_rotate(t_list_ex *a);
 void		rra(t_list_ex *a);
 void		rrb(t_list_ex *b);
+void		rrr(t_list_ex *a, t_list_ex *b);
 void		push(t_list_ex *from, t_list_ex *to);
 void		pa(t_list_ex *a, t_list_ex *b);
 void		pb(t_list_ex *a, t_list_ex *b);

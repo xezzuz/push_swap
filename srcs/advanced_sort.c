@@ -6,11 +6,30 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:10:12 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/09 21:15:11 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/10 20:20:16 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	ft_get_cost(t_list_ex *a, t_list_ex *b)
+{
+	t_list		*current_b;
+
+	current_b = b->head;
+	while (current_b)
+	{
+		if (current_b->index <= b->size / 2)
+			current_b->cost = current_b->index;
+		else if (current_b->index > b->size / 2)
+			current_b->cost = b->size - current_b->index;
+		if (current_b->target_node->index <= a->size / 2)
+			current_b->cost += current_b->target_node->index;
+		else if (current_b->target_node->index > a->size / 2)
+			current_b->cost += a->size - current_b->target_node->index;
+		current_b = current_b->next;
+	}
+}
 
 void	ft_get_target_nodes(t_list_ex *a, t_list_ex *b)
 {
@@ -42,49 +61,78 @@ void	ft_get_target_nodes(t_list_ex *a, t_list_ex *b)
 	}
 }
 
-int	ft_is_in_lis(int x, t_arrays arr)
-{
-	int		i;
-
-	i = 0;
-	while (i < arr.lis_len)
-	{
-		if (x == arr.lis[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-void	ft_stack_to_lis(t_list_ex *a, t_list_ex *b, t_arrays arr)
+void	ft_get_cheapest(t_list_ex *b)
 {
 	t_list		*current;
-	int			i;
 
-	current = a->head;
-	i = 0;
-	while (i < a->size)
+	current = b->head;
+	if (!current)
+		return ;
+	if (current->next)
 	{
-		if (ft_is_in_lis(current->content, arr))
-			ra(a);
-		else
-			pb(a, b);
-		current = a->head;
-		i++;
+		b->cheapest = current;
+		printf("cost of [%d] is [%d]\n", current->content, current->cost);
+		current = current->next;
+		while (current)
+		{
+			if (!b->cheapest->cost)
+				return ;
+			if (current->cost < b->cheapest->cost)
+				b->cheapest = current;
+			current = current->next;
+		}
 	}
+	else
+		b->cheapest = current;
+}
+
+void	ft_move_to_a(t_list_ex *a, t_list_ex *b)
+{
+	if (!b->cheapest->index && !b->cheapest->target_node->index)
+	{
+		pa(a, b);
+		return ;
+	}
+	// if ((b->cheapest->index <= b->size / 2)
+	// 	&& (b->cheapest->target_node->index <= a->size / 2))
+	// 	rr(a, b);
+	// else if ((b->cheapest->index > b->size / 2)
+	// 	&& (b->cheapest->target_node->index > a->size / 2))
+	// 	rrr(a, b);
+	ft_get_cheapest_to_top_b(b, b->cheapest);
+	ft_get_cheapest_to_top_a(a, b->cheapest->target_node);
+	pa(a, b);
 }
 
 void	ft_sort_stack(t_list_ex *a, t_list_ex *b, t_arrays arr)
 {
 	ft_stack_to_lis(a, b, arr);
-	ft_get_target_nodes(a, b);
-
-	t_list	*current_b;
-
-	current_b = b->head;
-	while (current_b)
+	printf("=====> first step:\nA:\n");
+	ft_print_ll(&a->head);
+	printf("B:\n");
+	ft_print_ll(&b->head);
+	a->size = ft_lstsize(a->head);
+	b->size = ft_lstsize(b->head);
+	while (b->head)
 	{
-		printf("target node of [%d] is [%d]\n", current_b->content, current_b->target_node->content);
-		current_b = current_b->next;
+		ft_get_target_nodes(a, b);
+		ft_get_cost(a, b);
+		ft_get_cheapest(b);
+		// printf("cheapest node is [%d] index [%d]\n", b->cheapest->content, b->cheapest->index);
+		// printf("target node is [%d] index [%d]\n", b->cheapest->target_node->content, b->cheapest->target_node->index);
+		ft_move_to_a(a, b);
+		printf("\nA: %p\n", a->head);
+		ft_print_ll(&a->head);
+		printf("\nB: %p\n", b->head);
+		ft_print_ll(&b->head);
+		a->size = ft_lstsize(a->head);
+		b->size = ft_lstsize(b->head);
 	}
+	if (!ft_is_sorted(a))
+		ft_final_check(a);
+	printf("\n\n=====> FINAL RESULT\n\nA:\n");
+	ft_print_ll(&a->head);
+	printf("\nB:\n");
+	ft_print_ll(&b->head);
+	/*   ./push_swap 142 88 76 66 62 2 8 -4 55 77 44 99 -1   */
 }
