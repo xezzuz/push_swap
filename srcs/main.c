@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:33:57 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/10 17:55:13 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/10 20:27:48 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,10 @@ int	ft_parse_and_stock(char **argv, t_list_ex *a, t_arrays *arr)
 		return (0);
 	if (!arr->seq_len)
 		ft_exit(1);
-	ft_print_int(arr->seq, arr->seq_len);
-	printf("\n");
 	arr->lis = ft_extract_lis(arr);
 	if (!arr->lis)
 		return (free(arr->seq), 0);
-	ft_print_int(arr->lis, arr->lis_len);
-	printf("\n");
 	ft_stack_init(a, &arr->seq, arr->seq_len);
-	ft_print_ll(&a->head);
 	return (1);
 }
 

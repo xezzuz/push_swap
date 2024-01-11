@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:49:57 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/10 17:51:20 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/11 13:58:37 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_list
 {
 	int				content;
 	int				index;
+	int				flag;
 	int				cost;
 	struct s_list	*target_node;
 	struct s_list	*next;
@@ -90,6 +91,8 @@ void		ft_sort_stack(t_list_ex *a, t_list_ex *b, t_arrays arr);
 
 t_list		*ft_get_max(t_list_ex *a);
 t_list		*ft_get_min(t_list_ex *a);
+int			ft_max(int a, int b);
+void		ft_get_flag(t_list *a, int size);
 
 void		sa(t_list_ex *a);
 void		rotate(t_list_ex *a);

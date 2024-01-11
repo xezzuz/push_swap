@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 19:12:20 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/08 13:22:50 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/10 20:28:16 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,5 @@ void	ft_stack_init(t_list_ex *a, int **seq, int n)
 		i++;
 	}
 	a->size = ft_lstsize(a->head);
-	printf(" SIZE = [%d]\n", a->size);
 	free(*seq);
 }

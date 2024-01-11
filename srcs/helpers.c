@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:06:40 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/08 13:30:10 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/11 14:01:20 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,12 @@ void	ft_print_ll(t_list **lst)
 	current = *lst;
 	while (current)
 	{
-		// printf("[%d]\t", current->index);
-		printf("[%d]\n", current->content);
+		printf("[%d]\t", current->index);
+		printf("[%d]\t", current->content);
+		if (current->flag)
+			printf("[ABOVE MEDIAN]\n");
+		else
+			printf("[BELOW MEDIAN]\n");
 		current = current->next;
 	}
 }
