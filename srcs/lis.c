@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:13:55 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/08 12:28:31 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/12 19:09:06 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,27 +70,27 @@ int	ft_sub_seq(int **seq, int **length, int **sub_seq, int n)
 	return (ft_get_max_len(*length, n));
 }
 
-int	*ft_extract_lis(t_arrays *arr)
-{
-	int		i;
-	int		max_len_indx;
-	int		curr_indx;
-	int		*length;
-	int		*sub_seq;
+// int	*ft_extract_lis(t_arrays *arr)
+// {
+// 	int		i;
+// 	int		max_len_indx;
+// 	int		curr_indx;
+// 	int		*length;
+// 	int		*sub_seq;
 
-	if (!ft_init_arr(&length, &sub_seq, arr->seq_len))
-		return (NULL);
-	max_len_indx = ft_sub_seq(&arr->seq, &length, &sub_seq, arr->seq_len);
-	arr->lis_len = length[max_len_indx];
-	arr->lis = malloc (arr->lis_len * sizeof(int));
-	if (!arr->lis)
-		return (free(length), free(sub_seq), NULL);
-	i = arr->lis_len - 1;
-	curr_indx = max_len_indx;
-	while (curr_indx != -1)
-	{
-		arr->lis[i--] = arr->seq[curr_indx];
-		curr_indx = sub_seq[curr_indx];
-	}
-	return (free(length), free(sub_seq), arr->lis);
-}
+// 	if (!ft_init_arr(&length, &sub_seq, arr->seq_len))
+// 		return (NULL);
+// 	max_len_indx = ft_sub_seq(&arr->seq, &length, &sub_seq, arr->seq_len);
+// 	arr->lis_len = length[max_len_indx];
+// 	arr->lis = malloc (arr->lis_len * sizeof(int));
+// 	if (!arr->lis)
+// 		return (free(length), free(sub_seq), NULL);
+// 	i = arr->lis_len - 1;
+// 	curr_indx = max_len_indx;
+// 	while (curr_indx != -1)
+// 	{
+// 		arr->lis[i--] = arr->seq[curr_indx];
+// 		curr_indx = sub_seq[curr_indx];
+// 	}
+// 	return (free(length), free(sub_seq), arr->lis);
+// }

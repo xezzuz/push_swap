@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:49:17 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/11 14:10:51 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/12 20:23:00 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,32 @@ int	ft_max(int a, int b)
 		return (a);
 	else
 		return (b);
+}
+t_list	*ft_get_min(t_list_ex *a)
+{
+	t_list		*current;
+	t_list		*min;
+
+	current = a->head->next;
+	min = a->head;
+	while (current)
+	{
+		if (current->content < min->content)
+			min = current;
+		current = current->next;
+	}
+	return (min);
+}
+
+int	ft_is_in_part(int x, t_arrays arr, int i, int j)
+{
+	while (i < j)
+	{
+		if (arr.seq[i] == x)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 void	ft_get_flag(t_list *a, int size)
@@ -51,49 +77,3 @@ void	ft_final_check(t_list_ex *a)
 			rra(a);
 	}
 }
-
-// void	ft_get_cost(t_list_ex *a, t_list_ex *b)
-// {
-// 	t_list		*current_b;
-// 	int flag = 0;
-// 	int target_moves;
-// 	current_b = b->head;
-// 	while (current_b)
-// 	{
-// 		if (current_b->index <= b->size / 2)
-// 			current_b->cost = current_b->index;
-// 		else if (current_b->index > b->size / 2)
-// 		{	flag = 1;
-// 			current_b->cost = b->size - current_b->index;}
-			
-// 		if (current_b->target_node->index <= a->size / 2)
-// 		{
-// 			target_moves = current_b->target_node->index;
-// 			if (!flag)
-// 			{
-// 				if (current_b->target_node->index > current_b->cost)
-// 					current_b->cost = current_b->target_node->index;
-// 			}
-// 			else
-// 				current_b->cost += target_moves;
-// 		}
-// 		else if (current_b->target_node->index > a->size / 2)
-// 		{
-// 			target_moves = a->size - current_b->target_node->index;
-// 			if (flag)
-// 			{
-// 				if (target_moves > current_b->cost)
-// 					current_b->cost = target_moves;
-// 			}
-// 			else
-// 				current_b->cost += target_moves;
-// 		}
-			
-// 		// else if (current_b->target_node->index <= a->size / 2 && flag)
-// 		// 	current_b->cost += current_b->target_node->index;
-			
-// 		// else if (current_b->target_node->index > a->size / 2)
-// 		// 	current_b->cost += a->size - current_b->target_node->index;
-// 		current_b = current_b->next;
-// 	}
-// }

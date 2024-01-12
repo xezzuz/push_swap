@@ -6,7 +6,7 @@
 #    By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 11:46:23 by nazouz            #+#    #+#              #
-#    Updated: 2024/01/10 17:51:52 by nazouz           ###   ########.fr        #
+#    Updated: 2024/01/12 19:14:26 by nazouz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS				=	\
 					./srcs/libft/ft_lstlast.c \
 					./srcs/libft/ft_lstnew.c \
 					./srcs/libft/ft_lstsize.c \
+					./srcs/libft/ft_sort_int_tab.c \
 					./srcs/ft_printf/ft_printf.c \
 					./srcs/ft_printf/ft_print_add.c \
 					./srcs/ft_printf/ft_printhex.c \

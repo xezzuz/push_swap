@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:49:57 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/11 13:58:37 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/12 20:35:16 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ typedef struct s_arrays
 {
 	int				*seq;
 	int				seq_len;
-	int				*lis;
-	int				lis_len;
 }	t_arrays;
 
 //	LIBFT
@@ -59,6 +57,7 @@ int			ft_lstsize(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstclear(t_list **lst);
+void		ft_sort_int_tab(int *tab, int size);
 
 //	PRINTF
 int			ft_putchar(int c);
@@ -81,10 +80,14 @@ int			ft_check_duplicates(int *array, int n);
 void		ft_stack_init(t_list_ex *a, int **seq, int n);
 int			ft_is_sorted(t_list_ex *a);
 int			ft_is_in_lis(int x, t_arrays arr);
-void		ft_stack_to_lis(t_list_ex *a, t_list_ex *b, t_arrays arr);
+void		ft_stack_to_arr(t_list_ex *a, t_arrays arr);
 void		ft_get_cheapest_to_top_b(t_list_ex *b, t_list *to_top);
 void		ft_get_cheapest_to_top_a(t_list_ex *a, t_list *to_top);
 void		ft_final_check(t_list_ex *a);
+int			ft_is_in_part(int x, t_arrays arr, int i, int j);
+void		ft_get_cost(t_list_ex *a, t_list_ex *b);
+void		ft_get_target_nodes(t_list_ex *a, t_list_ex *b);
+void		ft_get_cheapest(t_list_ex *b);
 
 void		ft_sort_three(t_list_ex *a);
 void		ft_sort_stack(t_list_ex *a, t_list_ex *b, t_arrays arr);
@@ -109,7 +112,7 @@ void		pb(t_list_ex *a, t_list_ex *b);
 
 //	HELPERS
 void		ft_print_matrix(char **matrix);
-void		ft_print_int(int *array, int length);
+void		ft_print_int(int *array, int i, int length);
 void		ft_print_ll(t_list **lst);
 void		x();
 

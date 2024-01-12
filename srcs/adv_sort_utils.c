@@ -6,60 +6,88 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:11:49 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/10 14:12:06 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/12 20:21:07 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list	*ft_get_min(t_list_ex *a)
+void	ft_get_cost(t_list_ex *a, t_list_ex *b)
 {
-	t_list		*current;
-	t_list		*min;
+	t_list		*current_b;
 
-	current = a->head->next;
-	min = a->head;
-	while (current)
+	current_b = b->head;
+	while (current_b)
 	{
-		if (current->content < min->content)
-			min = current;
-		current = current->next;
+		if (current_b->flag && current_b->target_node->flag)
+			current_b->cost
+				= ft_max(current_b->index, current_b->target_node->index);
+		else if (!current_b->flag && !current_b->target_node->flag)
+			current_b->cost
+				= ft_max(b->size - current_b->index,
+					a->size - current_b->target_node->index);
+		else if (current_b->flag && !current_b->target_node->flag)
+			current_b->cost
+				= current_b->index + (a->size - current_b->target_node->index);
+		else if (!current_b->flag && current_b->target_node->flag)
+			current_b->cost
+				= (b->size - current_b->index) + current_b->target_node->index;
+		current_b = current_b->next;
 	}
-	return (min);
 }
 
-int	ft_is_in_lis(int x, t_arrays arr)
+void	ft_get_target_nodes(t_list_ex *a, t_list_ex *b)
 {
-	int		i;
+	t_list		*current_a;
+	t_list		*current_b;
+	t_list		*target_node;
+	long		biggest;
 
-	i = 0;
-	while (i < arr.lis_len)
+	current_b = b->head;
+	while (current_b)
 	{
-		if (x == arr.lis[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-void	ft_stack_to_lis(t_list_ex *a, t_list_ex *b, t_arrays arr)
-{
-	t_list		*current;
-	int			size;
-	int			i;
-
-	current = a->head;
-	size = a->size;
-	i = 0;
-	while (i < size)
-	{
-		if (ft_is_in_lis(current->content, arr))
-			ra(a);
+		biggest = LONG_MAX;
+		current_a = a->head;
+		while (current_a)
+		{
+			if (current_a->content > current_b->content
+				&& current_a->content < biggest)
+			{
+				biggest = current_a->content;
+				target_node = current_a;
+			}
+			current_a = current_a->next;
+		}
+		if (biggest == LONG_MAX)
+			current_b->target_node = ft_get_min(a);
 		else
-			pb(a, b);
-		current = a->head;
-		i++;
+			current_b->target_node = target_node;
+		current_b = current_b->next;
 	}
+}
+
+void	ft_get_cheapest(t_list_ex *b)
+{
+	t_list		*current;
+
+	current = b->head;
+	if (!current)
+		return ;
+	if (current->next)
+	{
+		b->cheapest = current;
+		current = current->next;
+		while (current)
+		{
+			if (!b->cheapest->cost)
+				return ;
+			if (current->cost < b->cheapest->cost)
+				b->cheapest = current;
+			current = current->next;
+		}
+	}
+	else
+		b->cheapest = current;
 }
 
 void	ft_get_cheapest_to_top_b(t_list_ex *b, t_list *to_top)
