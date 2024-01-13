@@ -6,21 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:34:41 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/10 13:29:04 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/13 15:56:29 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-
-void	sa(t_list_ex *a)
-{
-	int		temp;
-
-	temp = a->head->content;
-	a->head->content = a->head->next->content;
-	a->head->next->content = temp;
-	ft_printf("sa\n");
-}
 
 void	rotate(t_list_ex *a)
 {
@@ -36,14 +26,14 @@ void	ra(t_list_ex *a)
 {
 	rotate(a);
 	a->size = ft_lstsize(a->head);
-	ft_printf("ra\n");
+	ft_putstr_fd("ra\n", 1);
 }
 
 void	rb(t_list_ex *b)
 {
 	rotate(b);
 	b->size = ft_lstsize(b->head);
-	ft_printf("rb\n");
+	ft_putstr_fd("rb\n", 1);
 }
 
 void	rr(t_list_ex *a, t_list_ex *b)
@@ -52,5 +42,5 @@ void	rr(t_list_ex *a, t_list_ex *b)
 	a->size = ft_lstsize(a->head);
 	rotate(b);
 	b->size = ft_lstsize(b->head);
-	ft_printf("rr\n");
+	ft_putstr_fd("rr\n", 1);
 }

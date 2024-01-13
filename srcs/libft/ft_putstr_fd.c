@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 12:44:19 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/05 12:34:24 by nazouz           ###   ########.fr       */
+/*   Created: 2023/11/04 20:26:11 by nazouz            #+#    #+#             */
+/*   Updated: 2024/01/13 15:20:43 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int	ft_putnbr(int n)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int		count;
-
-	count = 0;
-	if (n == -2147483648)
-		return (write(1, "-2147483648", 11));
-	if (n < 0)
+	if (!s)
+		return ;
+	while (*s)
 	{
-		count += ft_putchar('-');
-		if (count == -1)
-			return (-1);
-		n = -n;
+		ft_putchar_fd(*s, fd);
+		s++;
 	}
-	if (n < 10)
-	{
-		count += ft_putchar(n + 48);
-		return (count);
-	}
-	count += ft_putnbr(n / 10);
-	if (count < 0)
-		return (-1);
-	count += ft_putnbr(n % 10);
-	return (count);
 }

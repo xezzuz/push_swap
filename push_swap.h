@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:49:57 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/12 20:35:16 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/13 20:33:49 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,15 @@ typedef struct s_arrays
 	int				seq_len;
 }	t_arrays;
 
+typedef struct s_pivot
+{
+	int				init;
+	int				sec;
+	int				prev;
+	int				ap;
+	int				bp;
+}	t_pivot;
+
 //	LIBFT
 size_t		ft_strlen(const char *s);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
@@ -58,33 +67,22 @@ t_list		*ft_lstlast(t_list *lst);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstclear(t_list **lst);
 void		ft_sort_int_tab(int *tab, int size);
-
-//	PRINTF
-int			ft_putchar(int c);
-int			ft_putstr(char *str);
-int			ft_putnbr(int n);
-int			ft_printhex(unsigned int n, char *hex);
-int			ft_printu(unsigned int n);
-int			ft_print_add(void *ptr);
-int			ft_printf(const char *format, ...);
+void		ft_putstr_fd(char *s, int fd);
+void		ft_putchar_fd(char c, int fd);
 
 //	PUSH_SWAP
 int			*ft_parse_check(char **argv, t_arrays *arr);
 void		ft_exit(int x);
 void		ft_free_matrix(char ***matrix);
-int			*ft_extract_lis(t_arrays *arr);
 int			ft_check_num(char **matrix);
 int			ft_matrix_size(char **matrix);
 int			ft_is_blank(char **argv);
 int			ft_check_duplicates(int *array, int n);
 void		ft_stack_init(t_list_ex *a, int **seq, int n);
 int			ft_is_sorted(t_list_ex *a);
-int			ft_is_in_lis(int x, t_arrays arr);
-void		ft_stack_to_arr(t_list_ex *a, t_arrays arr);
 void		ft_get_cheapest_to_top_b(t_list_ex *b, t_list *to_top);
 void		ft_get_cheapest_to_top_a(t_list_ex *a, t_list *to_top);
 void		ft_final_check(t_list_ex *a);
-int			ft_is_in_part(int x, t_arrays arr, int i, int j);
 void		ft_get_cost(t_list_ex *a, t_list_ex *b);
 void		ft_get_target_nodes(t_list_ex *a, t_list_ex *b);
 void		ft_get_cheapest(t_list_ex *b);
@@ -98,6 +96,8 @@ int			ft_max(int a, int b);
 void		ft_get_flag(t_list *a, int size);
 
 void		sa(t_list_ex *a);
+void		sb(t_list_ex *b);
+void		ss(t_list_ex *a, t_list_ex *b);
 void		rotate(t_list_ex *a);
 void		ra(t_list_ex *a);
 void		rb(t_list_ex *b);

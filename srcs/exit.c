@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 12:39:38 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/05 12:40:55 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/13 15:33:54 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 void	ft_exit(int x)
 {
 	if (x == 0)
-		ft_printf("Error\n");
-	exit (0);
+		ft_putstr_fd("Error\n", 2);
+	exit (1);
 }

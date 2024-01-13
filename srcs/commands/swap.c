@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 12:32:37 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/05 12:34:26 by nazouz           ###   ########.fr       */
+/*   Created: 2024/01/13 15:56:15 by nazouz            #+#    #+#             */
+/*   Updated: 2024/01/13 15:57:39 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int	ft_putstr(char *str)
+void	sa(t_list_ex *a)
 {
-	int		i;
-	int		return_value;
+	int		temp;
 
-	i = 0;
-	return_value = 0;
-	if (!str)
-	{
-		i += ft_putstr("(null)");
-		return (i);
-	}
-	while (str[i] != '\0')
-	{
-		return_value = ft_putchar(str[i]);
-		if (return_value == -1)
-			return (-1);
-		i++;
-	}
-	return (i);
+	temp = a->head->content;
+	a->head->content = a->head->next->content;
+	a->head->next->content = temp;
+	ft_putstr_fd("sa\n", 1);
+}
+
+void	sb(t_list_ex *b)
+{
+	int		temp;
+
+	temp = b->head->content;
+	b->head->content = b->head->next->content;
+	b->head->next->content = temp;
+	ft_putstr_fd("sb\n", 1);
+}
+
+void	ss(t_list_ex *a, t_list_ex *b)
+{
+	sa(a);
+	sb(b);
+	ft_putstr_fd("ss\n", 1);
 }

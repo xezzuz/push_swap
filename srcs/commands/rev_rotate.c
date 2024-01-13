@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:31:32 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/10 13:28:27 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/13 15:25:46 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ void	rra(t_list_ex *a)
 {
 	reverse_rotate(a);
 	a->size = ft_lstsize(a->head);
-	ft_printf("rra\n");
+	ft_putstr_fd("rra\n", 1);
 }
 
 void	rrb(t_list_ex *b)
 {
 	reverse_rotate(b);
 	b->size = ft_lstsize(b->head);
-	ft_printf("rrb\n");
+	ft_putstr_fd("rrb\n", 1);
 }
 
 void	rrr(t_list_ex *a, t_list_ex *b)
@@ -46,5 +46,5 @@ void	rrr(t_list_ex *a, t_list_ex *b)
 	a->size = ft_lstsize(a->head);
 	reverse_rotate(b);
 	b->size = ft_lstsize(b->head);
-	ft_printf("rrr\n");
+	ft_putstr_fd("rrr\n", 1);
 }

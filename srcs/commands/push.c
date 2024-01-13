@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:28:04 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/10 13:27:41 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/13 15:24:56 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	pa(t_list_ex *a, t_list_ex *b)
 	push(b, a);
 	a->size = ft_lstsize(a->head);
 	b->size = ft_lstsize(b->head);
-	ft_printf("pa\n");
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_list_ex *a, t_list_ex *b)
@@ -35,5 +35,5 @@ void	pb(t_list_ex *a, t_list_ex *b)
 	push(a, b);
 	a->size = ft_lstsize(a->head);
 	b->size = ft_lstsize(b->head);
-	ft_printf("pb\n");
+	ft_putstr_fd("pb\n", 1);
 }
