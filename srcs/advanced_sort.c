@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:10:12 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/13 20:33:18 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 10:17:26 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ void	ft_move_to_b(t_list_ex *a, t_list_ex *b, t_arrays arr)
 {
 	t_pivot			p;
 
-	p.prev = -1;
-	p.sec = a->size / 4;
-	p.init = a->size / 2;
+	ft_pivots_init(a, &p);
 	while (a->size > 3)
 	{
 		if (b->size > 1

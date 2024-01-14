@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:49:17 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/13 20:41:30 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 10:27:45 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,19 @@ void	ft_get_flag(t_list *a, int size)
 	}
 }
 
-void	ft_target_check(t_list_ex *a, t_list *target, t_list *current_b, long biggest)
+void	ft_pivots_init(t_list_ex *a, t_pivot *p)
 {
-	
+	p->prev = -1;
+	p->sec = a->size / 4;
+	p->init = a->size / 2;
+}
+
+void	ft_trgt_check(t_list_ex *a, t_list *trgt, t_list *cur_b, long big)
+{
+	if (big == 2147483648)
+		cur_b->target_node = ft_get_min(a);
+	else
+		cur_b->target_node = trgt;
 }
 
 void	ft_final_check(t_list_ex *a)

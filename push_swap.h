@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:49:57 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/13 20:33:49 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 10:42:00 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ typedef struct s_pivot
 	int				init;
 	int				sec;
 	int				prev;
-	int				ap;
-	int				bp;
 }	t_pivot;
 
 //	LIBFT
@@ -85,7 +83,9 @@ void		ft_get_cheapest_to_top_a(t_list_ex *a, t_list *to_top);
 void		ft_final_check(t_list_ex *a);
 void		ft_get_cost(t_list_ex *a, t_list_ex *b);
 void		ft_get_target_nodes(t_list_ex *a, t_list_ex *b);
+void		ft_trgt_check(t_list_ex *a, t_list *trgt, t_list *cur_b, long big);
 void		ft_get_cheapest(t_list_ex *b);
+void		ft_pivots_init(t_list_ex *a, t_pivot *p);
 
 void		ft_sort_three(t_list_ex *a);
 void		ft_sort_stack(t_list_ex *a, t_list_ex *b, t_arrays arr);
@@ -109,11 +109,5 @@ void		rrr(t_list_ex *a, t_list_ex *b);
 void		push(t_list_ex *from, t_list_ex *to);
 void		pa(t_list_ex *a, t_list_ex *b);
 void		pb(t_list_ex *a, t_list_ex *b);
-
-//	HELPERS
-void		ft_print_matrix(char **matrix);
-void		ft_print_int(int *array, int i, int length);
-void		ft_print_ll(t_list **lst);
-void		x();
 
 #endif

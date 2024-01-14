@@ -6,7 +6,7 @@
 #    By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 11:46:23 by nazouz            #+#    #+#              #
-#    Updated: 2024/01/13 16:08:02 by nazouz           ###   ########.fr        #
+#    Updated: 2024/01/14 10:19:53 by nazouz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME			=	push_swap
 
 CC				=	cc
 
-CFLAGS			=	-Wall -Wextra -Werror -g3
+CFLAGS			=	-Wall -Wextra -Werror
 
 INCLUDES		=	./push_swap.h
 
@@ -58,8 +58,6 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CC) $(OBJS) -o $@
-
-cc : all clean	#############################
 
 clean :
 	$(RM) $(OBJS)

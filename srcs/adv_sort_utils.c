@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:11:49 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/13 20:32:40 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 10:14:56 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_get_target_nodes(t_list_ex *a, t_list_ex *b)
 	current_b = b->head;
 	while (current_b)
 	{
-		biggest = LONG_MAX;
+		biggest = 2147483648;
 		current_a = a->head;
 		while (current_a)
 		{
@@ -58,10 +58,7 @@ void	ft_get_target_nodes(t_list_ex *a, t_list_ex *b)
 			}
 			current_a = current_a->next;
 		}
-		if (biggest == LONG_MAX)
-			current_b->target_node = ft_get_min(a);
-		else
-			current_b->target_node = target_node;
+		ft_trgt_check(a, target_node, current_b, biggest);
 		current_b = current_b->next;
 	}
 }
