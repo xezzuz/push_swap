@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:49:17 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/14 10:27:45 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:48:18 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	ft_max(int a, int b)
 {

@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:06:46 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/08 11:01:53 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:58:52 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap_bonus.h"
 
 void	ft_free_matrix(char ***matrix)
 {

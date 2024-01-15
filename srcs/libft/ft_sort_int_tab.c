@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 19:13:49 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/13 16:06:51 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:54:42 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_sort_int_tab(int *tab, int size)
 {

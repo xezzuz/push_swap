@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:36:38 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/08 11:21:52 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:54:32 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../includes/push_swap.h"
 
 t_list	*ft_lstnew(int content)
 {

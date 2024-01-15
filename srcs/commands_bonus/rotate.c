@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:34:41 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/14 16:55:31 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/15 11:24:02 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../includes/push_swap_bonus.h"
 
 void	rotate(t_list_ex *a)
 {
@@ -28,7 +28,6 @@ void	ra(t_list_ex *a)
 		return ;
 	rotate(a);
 	a->size = ft_lstsize(a->head);
-	ft_putstr_fd("ra\n", 1);
 }
 
 void	rb(t_list_ex *b)
@@ -37,7 +36,6 @@ void	rb(t_list_ex *b)
 		return ;
 	rotate(b);
 	b->size = ft_lstsize(b->head);
-	ft_putstr_fd("rb\n", 1);
 }
 
 void	rr(t_list_ex *a, t_list_ex *b)
@@ -48,5 +46,4 @@ void	rr(t_list_ex *a, t_list_ex *b)
 	a->size = ft_lstsize(a->head);
 	rotate(b);
 	b->size = ft_lstsize(b->head);
-	ft_putstr_fd("rr\n", 1);
 }

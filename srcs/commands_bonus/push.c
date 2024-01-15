@@ -1,52 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 13:34:41 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/14 16:55:31 by nazouz           ###   ########.fr       */
+/*   Created: 2024/01/09 17:28:04 by nazouz            #+#    #+#             */
+/*   Updated: 2024/01/15 11:24:18 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../includes/push_swap_bonus.h"
 
-void	rotate(t_list_ex *a)
+void	push(t_list_ex *from, t_list_ex *to)
 {
-	t_list		*last;
+	t_list		*temp;
 
-	last = ft_lstlast(a->head);
-	last->next = a->head;
-	a->head = a->head->next;
-	last->next->next = NULL;
+	temp = from->head;
+	from->head = from->head->next;
+	temp->next = to->head;
+	to->head = temp;
 }
 
-void	ra(t_list_ex *a)
-{
-	if (!a->head)
-		return ;
-	rotate(a);
-	a->size = ft_lstsize(a->head);
-	ft_putstr_fd("ra\n", 1);
-}
-
-void	rb(t_list_ex *b)
+void	pa(t_list_ex *a, t_list_ex *b)
 {
 	if (!b->head)
 		return ;
-	rotate(b);
+	push(b, a);
+	a->size = ft_lstsize(a->head);
 	b->size = ft_lstsize(b->head);
-	ft_putstr_fd("rb\n", 1);
 }
 
-void	rr(t_list_ex *a, t_list_ex *b)
+void	pb(t_list_ex *a, t_list_ex *b)
 {
-	if (!a->head || !b->head)
+	if (!a->head)
 		return ;
-	rotate(a);
+	push(a, b);
 	a->size = ft_lstsize(a->head);
-	rotate(b);
 	b->size = ft_lstsize(b->head);
-	ft_putstr_fd("rr\n", 1);
 }

@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:39:52 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/08 12:24:53 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:48:31 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
 char	**ft_extract_args(char **argv)
 {

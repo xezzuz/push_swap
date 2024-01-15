@@ -1,17 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:49:57 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/14 10:42:00 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/15 11:22:18 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -53,6 +57,7 @@ typedef struct s_pivot
 
 //	LIBFT
 size_t		ft_strlen(const char *s);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char		*ft_strdup(const char *s1);
 char		*ft_strjoin(char const *s1, char const *s2);
@@ -68,6 +73,9 @@ void		ft_sort_int_tab(int *tab, int size);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putchar_fd(char c, int fd);
 
+//	GET_NEXT_LINE
+char		*get_next_line(int fd);
+
 //	PUSH_SWAP
 int			*ft_parse_check(char **argv, t_arrays *arr);
 void		ft_exit(int x);
@@ -78,23 +86,7 @@ int			ft_is_blank(char **argv);
 int			ft_check_duplicates(int *array, int n);
 void		ft_stack_init(t_list_ex *a, int **seq, int n);
 int			ft_is_sorted(t_list_ex *a);
-void		ft_get_cheapest_to_top_b(t_list_ex *b, t_list *to_top);
-void		ft_get_cheapest_to_top_a(t_list_ex *a, t_list *to_top);
-void		ft_final_check(t_list_ex *a);
-void		ft_get_cost(t_list_ex *a, t_list_ex *b);
-void		ft_get_target_nodes(t_list_ex *a, t_list_ex *b);
-void		ft_trgt_check(t_list_ex *a, t_list *trgt, t_list *cur_b, long big);
-void		ft_get_cheapest(t_list_ex *b);
-void		ft_pivots_init(t_list_ex *a, t_pivot *p);
-
 void		ft_sort_three(t_list_ex *a);
-void		ft_sort_stack(t_list_ex *a, t_list_ex *b, t_arrays arr);
-
-t_list		*ft_get_max(t_list_ex *a);
-t_list		*ft_get_min(t_list_ex *a);
-int			ft_max(int a, int b);
-void		ft_get_flag(t_list *a, int size);
-
 void		sa(t_list_ex *a);
 void		sb(t_list_ex *b);
 void		ss(t_list_ex *a, t_list_ex *b);

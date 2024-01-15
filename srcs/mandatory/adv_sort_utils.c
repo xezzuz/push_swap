@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:11:49 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/14 10:14:56 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:48:21 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_get_cost(t_list_ex *a, t_list_ex *b)
 {

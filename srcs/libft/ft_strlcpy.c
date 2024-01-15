@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:54:45 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/05 11:52:01 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:54:53 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../includes/push_swap.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

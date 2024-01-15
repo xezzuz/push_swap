@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 15:56:15 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/14 16:55:38 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/15 11:24:27 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../includes/push_swap_bonus.h"
 
 void	sa(t_list_ex *a)
 {
@@ -21,7 +21,6 @@ void	sa(t_list_ex *a)
 	temp = a->head->content;
 	a->head->content = a->head->next->content;
 	a->head->next->content = temp;
-	ft_putstr_fd("sa\n", 1);
 }
 
 void	sb(t_list_ex *b)
@@ -33,7 +32,6 @@ void	sb(t_list_ex *b)
 	temp = b->head->content;
 	b->head->content = b->head->next->content;
 	b->head->next->content = temp;
-	ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_list_ex *a, t_list_ex *b)
@@ -42,5 +40,4 @@ void	ss(t_list_ex *a, t_list_ex *b)
 		return ;
 	sa(a);
 	sb(b);
-	ft_putstr_fd("ss\n", 1);
 }

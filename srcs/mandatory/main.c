@@ -6,11 +6,18 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:33:57 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/13 16:07:10 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/15 11:18:09 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
+
+void	ft_exit(int x)
+{
+	if (x == 0)
+		ft_putstr_fd("Error\n", 2);
+	exit(1);
+}
 
 int	ft_parse_and_stock(char **argv, t_list_ex *a, t_arrays *arr)
 {
@@ -43,10 +50,9 @@ int	main(int argc, char **argv)
 		if (a.size == 2)
 			sa(&a);
 		else if (a.size == 3)
-			ft_sort_three(&a);
+			return (ft_sort_three(&a), free(arr.seq), ft_lstclear(&a.head), 0);
 		else
-			ft_sort_stack(&a, &b, arr);
+			return (ft_sort_stack(&a, &b, arr), 0);
 	}
-	// atexit(x);
 	return (0);
 }

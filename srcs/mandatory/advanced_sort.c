@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:10:12 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/14 10:17:26 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:48:23 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	ft_get_index(int content, int *arr, int size)
 {

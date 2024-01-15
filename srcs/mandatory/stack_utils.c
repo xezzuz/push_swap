@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 19:12:20 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/13 20:32:58 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 19:27:37 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
 t_list	*ft_get_min(t_list_ex *a)
 {
@@ -84,6 +84,7 @@ void	ft_stack_init(t_list_ex *a, int **seq, int n)
 		{
 			ft_lstclear(&a->head);
 			free (*seq);
+			return ;
 		}
 		ft_lstadd_back(&a->head, node);
 		i++;

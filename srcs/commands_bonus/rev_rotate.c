@@ -1,52 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 13:34:41 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/14 16:55:31 by nazouz           ###   ########.fr       */
+/*   Created: 2024/01/08 14:31:32 by nazouz            #+#    #+#             */
+/*   Updated: 2024/01/15 11:24:12 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../includes/push_swap_bonus.h"
 
-void	rotate(t_list_ex *a)
+void	reverse_rotate(t_list_ex *a)
 {
 	t_list		*last;
+	t_list		*current;
 
-	last = ft_lstlast(a->head);
+	current = a->head;
+	while (current->next->next)
+		current = current->next;
+	last = current->next;
+	current->next = NULL;
 	last->next = a->head;
-	a->head = a->head->next;
-	last->next->next = NULL;
+	a->head = last;
 }
 
-void	ra(t_list_ex *a)
+void	rra(t_list_ex *a)
 {
 	if (!a->head)
 		return ;
-	rotate(a);
+	reverse_rotate(a);
 	a->size = ft_lstsize(a->head);
-	ft_putstr_fd("ra\n", 1);
 }
 
-void	rb(t_list_ex *b)
+void	rrb(t_list_ex *b)
 {
 	if (!b->head)
 		return ;
-	rotate(b);
+	reverse_rotate(b);
 	b->size = ft_lstsize(b->head);
-	ft_putstr_fd("rb\n", 1);
 }
 
-void	rr(t_list_ex *a, t_list_ex *b)
+void	rrr(t_list_ex *a, t_list_ex *b)
 {
 	if (!a->head || !b->head)
 		return ;
-	rotate(a);
+	reverse_rotate(a);
 	a->size = ft_lstsize(a->head);
-	rotate(b);
+	reverse_rotate(b);
 	b->size = ft_lstsize(b->head);
-	ft_putstr_fd("rr\n", 1);
 }

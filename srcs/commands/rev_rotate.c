@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:31:32 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/13 15:25:46 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:55:33 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	reverse_rotate(t_list_ex *a)
 {
@@ -28,6 +28,8 @@ void	reverse_rotate(t_list_ex *a)
 
 void	rra(t_list_ex *a)
 {
+	if (!a->head)
+		return ;
 	reverse_rotate(a);
 	a->size = ft_lstsize(a->head);
 	ft_putstr_fd("rra\n", 1);
@@ -35,6 +37,8 @@ void	rra(t_list_ex *a)
 
 void	rrb(t_list_ex *b)
 {
+	if (!b->head)
+		return ;
 	reverse_rotate(b);
 	b->size = ft_lstsize(b->head);
 	ft_putstr_fd("rrb\n", 1);
@@ -42,6 +46,8 @@ void	rrb(t_list_ex *b)
 
 void	rrr(t_list_ex *a, t_list_ex *b)
 {
+	if (!a->head || !b->head)
+		return ;
 	reverse_rotate(a);
 	a->size = ft_lstsize(a->head);
 	reverse_rotate(b);

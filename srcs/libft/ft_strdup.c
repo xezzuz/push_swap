@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:29:15 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/05 11:51:56 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:54:47 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../includes/push_swap.h"
 
 char	*ft_strdup(const char *s1)
 {
