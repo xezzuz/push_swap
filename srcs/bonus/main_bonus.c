@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 11:00:09 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/15 11:17:51 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/15 17:04:49 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_check_command(t_list_ex *a, t_list_ex *b, char *command)
 	return (free(command), 1);
 }
 
-void	ft_get_commands(t_list_ex *a, t_list_ex *b)
+int	ft_get_commands(t_list_ex *a, t_list_ex *b)
 {
 	char	*command;
 
@@ -58,8 +58,9 @@ void	ft_get_commands(t_list_ex *a, t_list_ex *b)
 		if (!command)
 			break ;
 		if (!ft_check_command(a, b, command))
-			ft_exit(0);
+			return (0);
 	}
+	return (1);
 }
 
 int	ft_parse_and_stock(char **argv, t_list_ex *a, t_arrays *arr)
@@ -88,9 +89,11 @@ int	main(int argc, char **argv)
 		return (0);
 	if (!ft_parse_and_stock(argv, &a, &arr))
 		ft_exit(0);
-	ft_get_commands(&a, &b);
+	if (!ft_get_commands(&a, &b))
+		return (ft_lstclear(&a.head), ft_lstclear(&b.head), ft_exit(0), 0);
 	if (ft_is_sorted(&a) && !b.head)
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
+	return (ft_lstclear(&a.head), ft_lstclear(&b.head), 0);
 }

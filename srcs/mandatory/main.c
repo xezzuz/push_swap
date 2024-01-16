@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:33:57 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/15 11:18:09 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/15 17:03:58 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_parse_and_stock(char **argv, t_list_ex *a, t_arrays *arr)
 		return (0);
 	if (!arr->seq_len)
 	{
-		free (arr->seq);
+		free(arr->seq);
 		ft_exit(1);
 	}
 	ft_stack_init(a, &arr->seq, arr->seq_len);
@@ -50,9 +50,9 @@ int	main(int argc, char **argv)
 		if (a.size == 2)
 			sa(&a);
 		else if (a.size == 3)
-			return (ft_sort_three(&a), free(arr.seq), ft_lstclear(&a.head), 0);
+			ft_sort_three(&a);
 		else
-			return (ft_sort_stack(&a, &b, arr), 0);
+			ft_sort_stack(&a, &b, arr);
 	}
-	return (0);
+	return (free(arr.seq), ft_lstclear(&a.head), ft_lstclear(&b.head), 0);
 }

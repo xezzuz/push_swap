@@ -6,19 +6,21 @@
 #    By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 11:46:23 by nazouz            #+#    #+#              #
-#    Updated: 2024/01/14 19:39:27 by nazouz           ###   ########.fr        #
+#    Updated: 2024/01/15 17:28:50 by nazouz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	push_swap
 
-NAME_BONUS		=	push_swap_bonus
+NAME_BONUS		=	checker
 
 CC				=	cc
 
 CFLAGS			=	-Wall -Wextra -Werror
 
 INCLUDES		=	./includes/push_swap.h
+
+INCLUDES_BONUS	=	./includes/push_swap_bonus.h
 
 RM				=	rm -f
 
@@ -81,7 +83,7 @@ OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)
 
 all : $(NAME)
 
-%.o : %.c $(INCLUDES)
+%.o : %.c $(INCLUDES) $(INCLUDES_BONUS)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 $(NAME) : $(OBJS)

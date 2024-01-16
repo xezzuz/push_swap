@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:10:12 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/14 16:48:23 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/15 16:42:07 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,4 @@ void	ft_sort_stack(t_list_ex *a, t_list_ex *b, t_arrays arr)
 	}
 	if (!ft_is_sorted(a))
 		ft_final_check(a);
-	free(arr.seq);
-	ft_lstclear(&a->head);
 }

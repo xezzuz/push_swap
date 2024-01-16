@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:39:52 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/14 16:48:31 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/15 16:35:43 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,18 @@ int	*ft_matrix_to_int(char **matrix, int size)
 
 	result = malloc (size * sizeof(int));
 	if (!result)
-		return (NULL);
+		return (ft_free_matrix(&matrix), NULL);
 	i = 0;
 	while (matrix[i])
 	{
 		num = ft_atoll(matrix[i]);
 		if (num < INT_MIN || num > INT_MAX)
-			return (free (result), NULL);
+			return (ft_free_matrix(&matrix), free(result), NULL);
 		result[i] = num;
 		i++;
 	}
 	if (!ft_check_duplicates(result, size))
-		return (free(result), NULL);
+		return (ft_free_matrix(&matrix), free(result), NULL);
 	return (ft_free_matrix(&matrix), result);
 }
 
@@ -71,7 +71,7 @@ int	*ft_parse_check(char **argv, t_arrays *arr)
 	if (!matrix)
 		ft_exit(0);
 	if (!ft_check_num(matrix))
-		ft_exit(0);
+		return (ft_free_matrix(&matrix), ft_exit(0), NULL);
 	arr->seq_len = ft_matrix_size(matrix);
 	return (ft_matrix_to_int(matrix, arr->seq_len));
 }
