@@ -6,7 +6,7 @@
 #    By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 11:46:23 by nazouz            #+#    #+#              #
-#    Updated: 2024/01/15 17:28:50 by nazouz           ###   ########.fr        #
+#    Updated: 2024/01/26 15:04:23 by nazouz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,10 +72,10 @@ SRCS_BONUS			=	\
 					./srcs/get_next_line/get_next_line.c \
 					./srcs/bonus/parse_bonus.c \
 					./srcs/bonus/parse_utils_bonus.c \
-					./srcs/commands_bonus/rotate.c \
-					./srcs/commands_bonus/rev_rotate.c \
-					./srcs/commands_bonus/push.c \
-					./srcs/commands_bonus/swap.c \
+					./srcs/commands_bonus/rotate_bonus.c \
+					./srcs/commands_bonus/rev_rotate_bonus.c \
+					./srcs/commands_bonus/push_bonus.c \
+					./srcs/commands_bonus/swap_bonus.c \
 					./srcs/bonus/main_bonus.c
 
 OBJS			=	$(SRCS:.c=.o)
@@ -87,10 +87,10 @@ all : $(NAME)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 $(NAME) : $(OBJS)
-	$(CC) $(OBJS) -o $@
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 
 $(NAME_BONUS) : $(OBJS_BONUS)
-	$(CC) $(OBJS_BONUS) -o $@
+	$(CC) $(CFLAGS) $(OBJS_BONUS) -o $@
 
 bonus : $(NAME_BONUS)
 

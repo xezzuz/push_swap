@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:39:52 by nazouz            #+#    #+#             */
-/*   Updated: 2024/01/15 16:45:27 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/01/17 17:31:39 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	ft_is_sorted(t_list_ex *a)
 {
 	t_list		*current;
 
+	if (!a->head)
+		return (0);
 	current = a->head;
 	while (current->next)
 	{
